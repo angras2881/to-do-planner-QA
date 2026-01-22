@@ -1,0 +1,17 @@
+name: Cypress E2E Tests
+on: [push] # Triggers the test automatically every time you push code to GitHub
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Cypress Tests
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
